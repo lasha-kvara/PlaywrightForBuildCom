@@ -21,19 +21,10 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y xvfb \
-            libwoff2-vanilla \
-            libvpx6 \
-            libevent-dev \
-            libopus0 \
-            libgstreamer1.0-0 \
-            libgstreamer-plugins-base1.0-0 \
-            libharfbuzz0b \
-            libhyphen0 \
-            libmanette-0.2-0 \
-            libflite1 \
-            libgles2-mesa \
-            libx264-159
+          sudo apt-get install -y xvfb libwoff2-dev libvpx-dev libevent-dev libopus-dev \
+            libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev libharfbuzz-dev \
+            libhyphen-dev libmanette-dev libflite1 libflite1-dev libgles2-mesa-dev \
+            libx264-dev
 
       - name: Restore dependencies
         run: dotnet restore
@@ -49,10 +40,6 @@ jobs:
           ls -R ./bin/Release
           echo "Checking bin/Release/net8.0 directory..."
           ls -R ./bin/Release/net8.0
-
-      - name: List Playwright Commands
-        run: xvfb-run pwsh -File ./bin/Release/net8.0/playwright.ps1 --help
-        shell: pwsh
 
       - name: Install Playwright Browsers
         run: xvfb-run pwsh -File ./bin/Release/net8.0/playwright.ps1 install
