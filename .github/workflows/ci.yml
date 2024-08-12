@@ -27,13 +27,13 @@ jobs:
       - name: Build project
         run: dotnet build --configuration Release
 
-      - name: List files in directory
-        run: ls -R ./bin/Debug/net8.0
+      - name: List files in Release directory
+        run: ls -R ./bin/Release/net8.0
 
       - name: Install Playwright Browsers
-        run: xvfb-run pwsh -File ./bin/Debug/net8.0/playwright.ps1 install
+        run: xvfb-run pwsh -File ./bin/Release/net8.0/playwright.ps1 install
         shell: pwsh
 
       - name: Run Playwright Tests
-        run: xvfb-run pwsh -File ./bin/Debug/net8.0/playwright.ps1 test
+        run: xvfb-run pwsh -File ./bin/Release/net8.0/playwright.ps1 test
         shell: pwsh
