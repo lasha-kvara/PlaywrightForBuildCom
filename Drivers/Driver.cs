@@ -21,7 +21,7 @@ namespace PangoTest.Drivers
             var playwright = Playwright.CreateAsync().GetAwaiter().GetResult(); // Blocking, for simplicity
             var browser = playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
             {
-                Headless = false,
+                Headless = true,
                 //SlowMo = 500
             }).GetAwaiter().GetResult(); // Blocking, for simplicity
             return browser;
