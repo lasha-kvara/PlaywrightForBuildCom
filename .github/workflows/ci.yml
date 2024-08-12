@@ -25,6 +25,9 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
 
+      - name: Install Playwright Browsers
+        run: pwsh .playwright/playwright.ps1 install
+
       - name: Restore dependencies
         run: dotnet restore
 
