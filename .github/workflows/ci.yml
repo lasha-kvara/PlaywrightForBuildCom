@@ -19,12 +19,7 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y xvfb libwoff2-dev libvpx-dev libevent-dev libopus-dev \
-            libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev libharfbuzz-dev \
-            libhyphen-dev libmanette-dev libflite1 libflite1-dev libgles2-mesa-dev \
-            libx264-dev
+        run: sudo apt-get update && sudo apt-get install -y xvfb
 
       - name: Restore dependencies
         run: dotnet restore
