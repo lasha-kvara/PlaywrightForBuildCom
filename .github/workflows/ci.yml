@@ -27,7 +27,8 @@ jobs:
 
       - name: Install Playwright Browsers
         run: pwsh .playwright/playwright.ps1 install
-
+        shell: pwsh
+      
       - name: Restore dependencies
         run: dotnet restore
 
