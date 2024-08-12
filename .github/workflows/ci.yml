@@ -19,7 +19,21 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y xvfb
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb \
+                                  libwoff2-dev \
+                                  libvpx-dev \
+                                  libevent-dev \
+                                  libopus0 \
+                                  libgstreamer1.0-dev \
+                                  libgstreamer-plugins-base1.0-dev \
+                                  libharfbuzz-dev \
+                                  libhyphen-dev \
+                                  libmanette-dev \
+                                  libflite1 \
+                                  libgles2-mesa-dev \
+                                  libx264-dev
 
       - name: Restore dependencies
         run: dotnet restore
@@ -41,5 +55,5 @@ jobs:
         shell: pwsh
 
       - name: Run Playwright Tests
-        run: xvfb-run pwsh -File ./bin/Release/net8.0/playwright.ps1 test
+        run: xvfb-run pwsh -Command "playwright test --headed"
         shell: pwsh
