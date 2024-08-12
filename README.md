@@ -1,5 +1,3 @@
-# PlaywrightForBuildCom
-
 # Running Playwright NUnit SpecFlow Tests Locally
 
 ## Prerequisites
@@ -34,4 +32,45 @@ Before you start, ensure you have the following installed:
 - For generating allure report - go into the \bin\Debug\net6.0 directory and run this command
   ```bash
   allure serve allure-results --clear
-  
+
+# Project Structure
+```bash
+<root-directory>/
+│
+├── PangoTest/
+│   ├── API/
+│   │   ├── GraphApi.cs
+│   ├── Database/
+|       └── DBConnection.cs
+│   ├── Drivers/
+│   │   └── Driver.cs
+│   ├── Features/
+│   │   ├── API.feature
+│   │   ├── Navigation.feature
+│   │   ├── Products.feature
+│   │   └── SignIn.feature
+│   ├── Hooks/
+│   │   └── Hooks.cs
+│   ├── Pages/
+│   │   ├── BasePage.cs
+│   │   ├── Products.cs
+│   │   └── SignInSignUp.cs
+│   ├── Reports/
+│   │   └── Screenshots/
+│   ├── Steps/
+│   │   ├── ApiSteps.cs
+│   │   ├── BaseSteps.cs
+│   │   ├── ProductsSteps.cs
+│   │   └── SignInSteps.cs
+│   ├── allureConfig.json
+│   ├── allureConfig.Template.json
+│   ├── specflow.json
+│   ├── README.md
+│   └── PangoTest.csproj
+│
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── .gitignore
+└── README.md
+
