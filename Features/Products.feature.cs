@@ -138,7 +138,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 17
-    testRunner.Given("Search Product Named \"<productNameOrId>\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("Search Product Named \"someProduct\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 18
     testRunner.Then("bearer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

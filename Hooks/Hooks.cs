@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Allure.Commons;
 using Microsoft.Playwright;
 using PangoTest.Drivers;
 using PangoTest.Pages;
@@ -17,6 +18,7 @@ namespace PangoTest.Hooks
         private readonly ScenarioContext _scenarioContext;
         private readonly BasePage _basePage;
         private static Process? _process;
+        private static AllureLifecycle _allure = AllureLifecycle.Instance;
 
 
         // The Base Url is Here
@@ -45,6 +47,12 @@ namespace PangoTest.Hooks
             // This will close the driver after scenario
             _driver?.Dispose();
         }
+        
+        [BeforeTestRun]
+        public static void BeforeTestTun()
+        {
+            _allure.CleanupResultDirectory();
+        }
 
         [AfterStep]
         public async Task AfterStep()
@@ -52,7 +60,9 @@ namespace PangoTest.Hooks
             // It will take the screenshot if some test fails
             if (_scenarioContext.TestError != null)
             {
+                var scenarioTitle = _scenarioContext.ScenarioInfo.Title;
                 var content = await TakeScreen(_page);
+                _allure.AddAttachment($"Allure Failed Screenshot - {scenarioTitle}", "application/png", content);
             }
         }
         
