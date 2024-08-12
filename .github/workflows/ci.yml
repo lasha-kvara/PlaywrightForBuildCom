@@ -24,6 +24,19 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
+          
+      - name: List directory contents
+        run: ls -R ./bin/Debug/net8.0
+        
+      - name: Set file permissions
+        run: chmod +x ./bin/Debug/net8.0/playwright.ps1
+
+      - name: Check PowerShell version
+        run: pwsh --version
+
+
+
+
 
       - name: Install Playwright Browsers
         run: pwsh ./bin/Debug/net8.0/playwright.ps1 install
