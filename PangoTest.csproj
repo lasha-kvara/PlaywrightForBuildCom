@@ -16,12 +16,14 @@
         <PackageReference Include="Microsoft.Playwright.NUnit" Version="1.45.1" />
         <PackageReference Include="Npgsql" Version="8.0.3" />
         <PackageReference Include="NUnit" Version="4.1.0" />
+        <PackageReference Include="NUnit.Allure" Version="1.2.1.1" />
         <PackageReference Include="NUnit.Analyzers" Version="4.2.0">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" />
-        <PackageReference Include="SpecFlow.NUnit" Version="4.0.31-beta" />
+        <PackageReference Include="SpecFlow.Allure" Version="3.5.0.73" />
+        <PackageReference Include="SpecFlow.NUnit" Version="3.9.74" />
     </ItemGroup>
 
     <ItemGroup>

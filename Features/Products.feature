@@ -14,7 +14,7 @@ Scenario Template: Verify Product Price
     
     @Test @PositiveScenario
 Scenario: Verify API
-    Given Search Product Named "<productNameOrId>"
+    Given Search Product Named "someProduct"
     Then bearer
     Then Test API
     
