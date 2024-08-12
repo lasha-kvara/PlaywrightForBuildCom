@@ -27,8 +27,14 @@ jobs:
       - name: Build project
         run: dotnet build --configuration Release
 
-      - name: List files in Release directory
-        run: ls -R ./bin/Release/net8.0
+      - name: Debug Build Output
+        run: |
+          echo "Checking bin directory..."
+          ls -R ./bin
+          echo "Checking bin/Release directory..."
+          ls -R ./bin/Release
+          echo "Checking bin/Release/net8.0 directory..."
+          ls -R ./bin/Release/net8.0
 
       - name: Install Playwright Browsers
         run: xvfb-run pwsh -File ./bin/Release/net8.0/playwright.ps1 install
